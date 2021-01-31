@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import Layout from "../../Layout";
+import Layout from "../../Shared/Layout";
 
 export default {
     props: ['customer', 'cities', 'errors'],
