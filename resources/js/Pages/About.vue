@@ -1,7 +1,7 @@
 <template >
     <layout>
         <div>
-            Olá {{ user }} você está na home.
+            estou na sobre
         </div>
     </layout>
 </template>
@@ -11,9 +11,6 @@ import Layout from "../Layout";
 
 export default {
     components: { Layout },
-    props: {
-        user: String
-    }
 }
 </script>
 
