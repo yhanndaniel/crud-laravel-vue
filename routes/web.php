@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CustomersController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +18,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/about', [HomeController::class, 'about']);
+
+Route::get('/customers', [CustomersController::class, 'index'])->name('customers.index');
+Route::get('/customers/create', [CustomersController::class, 'create'])->name('customers.create');
+Route::post('/customers', [CustomersController::class, 'store'])->name('customers.store');
+Route::get('/customers/{customer}/edit', [CustomersController::class, 'edit'])->name('customers.edit');
+Route::patch('/customers/{customer}', [CustomersController::class, 'update'])->name('customers.update');
+Route::delete('/customers/{customer}', [CustomersController::class, 'destroy'])->name('customers.destroy');

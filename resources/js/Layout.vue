@@ -22,6 +22,9 @@
             <li class="nav-item">
               <inertia-link class="nav-link" href="/about">Sobre</inertia-link>
             </li>
+            <li class="nav-item">
+              <inertia-link class="nav-link" href="/customers">Clientes</inertia-link>
+            </li>
           </ul>
         </div>
       </div>
@@ -34,7 +37,9 @@
 </template>
 
 <script>
-export default {};
+export default {
+    inject: ['page'],
+};
 </script>
 
 <style>
