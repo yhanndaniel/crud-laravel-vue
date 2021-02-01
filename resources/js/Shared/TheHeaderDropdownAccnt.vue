@@ -22,9 +22,6 @@
     >
       <strong>Configurações</strong>
     </CDropdownHeader>
-    <CDropdownItem>
-      <CIcon name="cil-user" /> Perfil
-    </CDropdownItem>
     <CDropdownDivider/>
     <CDropdownItem  @click="logout">
       <CIcon name="cil-lock-locked" /> Sair

@@ -33746,9 +33746,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'TheHeaderDropdownAccnt',
   methods: {
@@ -51635,23 +51632,17 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("CFooter", { attrs: { fixed: false } }, [
     _c("div", [
-      _c("a", { attrs: { href: "https://coreui.io", target: "_blank" } }, [
-        _vm._v("CoreUI")
-      ]),
-      _vm._v(" "),
+      _vm._v("\n    CRUD\n    "),
       _c("span", { staticClass: "ml-1" }, [
-        _vm._v("© " + _vm._s(new Date().getFullYear()) + " creativeLabs.")
+        _vm._v("© " + _vm._s(new Date().getFullYear()) + " Laravel Vue.js.")
       ])
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "mfs-auto" }, [
       _c("span", { staticClass: "mr-1", attrs: { target: "_blank" } }, [
-        _vm._v("Powered by")
+        _vm._v("Feito com")
       ]),
-      _vm._v(" "),
-      _c("a", { attrs: { href: "https://coreui.io/vue" } }, [
-        _vm._v("CoreUI for Vue")
-      ])
+      _vm._v("\n    Laravel e Vue\n  ")
     ])
   ])
 }
@@ -51808,12 +51799,6 @@ var render = function() {
         "CDropdownHeader",
         { staticClass: "text-center", attrs: { tag: "div", color: "light" } },
         [_c("strong", [_vm._v("Configurações")])]
-      ),
-      _vm._v(" "),
-      _c(
-        "CDropdownItem",
-        [_c("CIcon", { attrs: { name: "cil-user" } }), _vm._v(" Perfil\n  ")],
-        1
       ),
       _vm._v(" "),
       _c("CDropdownDivider"),
