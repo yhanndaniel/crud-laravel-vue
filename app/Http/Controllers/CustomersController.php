@@ -17,6 +17,9 @@ class CustomersController extends Controller
     public function index(Request $request)
     {
         $search = $request->get('search') ?? null;
+        $orderBy = $request->get('orderBy') ?? 'name';
+        $orderDirection = $request->get('orderDirection') ?? 'asc';
+        $page = $request->get('page') ?? 1;
 
         $query = Customer::with('city');
 
@@ -24,11 +27,18 @@ class CustomersController extends Controller
            $query =  $query->where('name', 'LIKE', '%'.$search.'%');
         }
 
+        if ($orderBy != null) {
+            $query =  $query->orderBy($orderBy, $orderDirection);
+        }
+
         $customers = $query->paginate(5);
 
         return Inertia::render('Customers/Index', [
-            'customers' => $customers,
-            'search' => $search
+            'customers'         => $customers,
+            'search'            => $search,
+            'orderBy'           => $orderBy,
+            'orderDirection'    => $orderDirection,
+            'page'              => $page
         ]);
     }
 
@@ -39,7 +49,7 @@ class CustomersController extends Controller
      */
     public function create()
     {
-        $cities = City::all();
+        $cities = City::orderBy('city')->get();
 
         return Inertia::render('Customers/Create', [
             'cities' => $cities,
