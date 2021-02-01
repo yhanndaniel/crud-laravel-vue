@@ -25,6 +25,9 @@
             <li class="nav-item">
               <inertia-link class="nav-link" href="/customers">Clientes</inertia-link>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" @click="logout">Logout</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -38,9 +41,20 @@
 
 <script>
 export default {
-    inject: ['page'],
+    methods: {
+        logout() {
+            this.$inertia.post('/logout/')
+                .then(() => {
+
+                })
+        },
+    }
 };
 </script>
 
 <style>
+    body {
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
 </style>
