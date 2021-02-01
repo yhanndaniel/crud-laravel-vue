@@ -1,7 +1,7 @@
 <template >
-    <layout>
+    <TheContainer>
         <div class="container">
-            <div class="col-md-6">
+            <div class="col-md-12">
 
                 <div v-if="Object.keys(errors).length > 0" class="alert alert-danger mt-4">
                     {{ errors[Object.keys(errors)[0]] }}
@@ -22,19 +22,19 @@
                     <button type="submit" class="btn btn-primary" :disabled="loading">Atualizar</button>
                 </form>
 
-                <button class="btn btn-danger" @click="deleteCustomer">Deletar Cliente</button>
+                <button class="btn btn-danger" @click="deleteCustomer"><CIcon name="cil-trash"/> Deletar Cliente</button>
             </div>
         </div>
-    </layout>
+    </TheContainer>
 </template>
 
 <script>
-import Layout from "../../Shared/Layout";
+import TheContainer from "../../Shared/TheContainer";
 
 export default {
     props: ['customer', 'cities', 'errors'],
 
-    components: { Layout },
+    components: { TheContainer },
 
     data() {
         return {

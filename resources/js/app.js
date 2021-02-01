@@ -3,6 +3,7 @@ import { App, plugin } from '@inertiajs/inertia-vue'
 import Vue from 'vue'
 import CoreuiVue from '@coreui/vue'
 import { iconsSet as icons } from './icons/icons.js'
+import store from './store'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faSortAlphaDown } from '@fortawesome/free-solid-svg-icons'
 import { faSortAlphaUp } from '@fortawesome/free-solid-svg-icons'
@@ -19,6 +20,7 @@ Vue.use(CoreuiVue)
 const el = document.getElementById('app')
 
 new Vue({
+  store,
   icons,
   render: h => h(App, {
     props: {

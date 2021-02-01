@@ -1,8 +1,7 @@
-<template >
-  <TheContainer>
-    <CRow>
+<template>
+  <CRow>
     <CCol sm="6" lg="6">
-      <CWidgetDropdown color="primary" :header="customers" text="Clientes Cadastrados">
+      <CWidgetDropdown color="primary" header="9.823" text="Clientes Cadastrados">
         <template #default>
             <template >
               <CIcon name="cil-user"/>
@@ -14,7 +13,7 @@
       </CWidgetDropdown>
     </CCol>
     <CCol sm="6" lg="6">
-      <CWidgetDropdown color="info" :header="cities"  text="Cidades Cadastradas">
+      <CWidgetDropdown color="info" header="9.823" text="Cidades Cadastradas">
         <template #default>
             <template >
               <CIcon name="cil-location-pin"/>
@@ -26,21 +25,8 @@
       </CWidgetDropdown>
     </CCol>
   </CRow>
-  </TheContainer>
 </template>
 
 <script>
-import TheContainer from "../Shared/TheContainer";
-import WidgetsDropdown from '../Shared/widgets/WidgetsDropdown'
 
-export default {
-  components: { TheContainer, WidgetsDropdown },
-  props: {
-    customers: Number,
-    cities: Number,
-  },
-};
 </script>
-
-<style >
-</style>

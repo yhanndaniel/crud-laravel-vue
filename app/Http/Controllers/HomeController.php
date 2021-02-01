@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Models\City;
+use App\Models\Models\Customer;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -14,9 +16,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $user = 'Yhann Daniel';
+        $customers  = Customer::get()->count();
+        $cities     = City::get()->count();
         return Inertia::render('Home', [
-            'user' => $user
+            'customers' => $customers,
+            'cities' => $cities
         ]);
     }
 

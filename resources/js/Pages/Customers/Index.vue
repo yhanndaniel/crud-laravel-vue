@@ -1,5 +1,5 @@
 <template >
-    <layout>
+    <TheContainer>
         <div class="container">
 
             <div v-if="successMessage" class="alert alert-success mt-4">
@@ -8,7 +8,7 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <form class="d-flex justify-content-between my-5" @submit.prevent="findCustomer">
+                    <form class="d-flex justify-content-between mb-5" @submit.prevent="findCustomer">
                         <input class="form-control me-1 mx-1" type="search" placeholder="Buscar" v-model="form.search" aria-label="Buscar" style="max-width: 70%;">
                         <input type="hidden" v-model="form.orderBy">
                         <input type="hidden" v-model="form.orderDirection">
@@ -32,25 +32,26 @@
                         <td>{{ customer.name }}</td>
                         <td>{{ customer.city.city }}</td>
                         <td>
-                            <inertia-link :href="`/customers/${customer.id}/edit`">Editar</inertia-link>
+                            <inertia-link :href="`/customers/${customer.id}/edit`"><CIcon name="cil-pencil"/></inertia-link>
+                            <a href="#" @click="deleteCustomer(customer.id)"><CIcon name="cil-trash"/></a>
                         </td>
                     </tr>
                 </tbody>
             </table>
             <pagination :links="customers.links" />
         </div>
-    </layout>
+    </TheContainer>
 </template>
 
 <script>
-import Layout from "../../Shared/Layout";
+import TheContainer from "../../Shared/TheContainer";
 import Pagination from "../../Shared/Pagination";
 
 export default {
     props: ['customers', 'successMessage', 'search', 'orderBy', 'orderDirection', 'page'],
 
     components: {
-        Layout,
+        TheContainer,
         Pagination
     },
 
@@ -95,6 +96,14 @@ export default {
                     // code
                 })
         },
+        deleteCustomer(id) {
+            if (confirm('Tem certeza que deseja apagar esse cliente?')) {
+                this.$inertia.delete(`/customers/${id}`)
+                    .then(() => {
+
+                    })
+            }
+        }
     }
 
 }

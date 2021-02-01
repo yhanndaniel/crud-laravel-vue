@@ -1,7 +1,7 @@
 <template >
-    <layout>
+    <TheContainer>
         <div class="container">
-            <div class="col-md-6">
+            <div class="col-md-12">
 
                 <div v-if="Object.keys(errors).length > 0" class="alert alert-danger mt-4">
                     {{ errors[Object.keys(errors)[0]] }}
@@ -23,16 +23,16 @@
                 </form>
             </div>
         </div>
-    </layout>
+    </TheContainer>
 </template>
 
 <script>
-import Layout from "../../Shared/Layout";
+import TheContainer from "../../Shared/TheContainer";
 
 export default {
     props: ['cities', 'errors'],
 
-    components: { Layout },
+    components: { TheContainer },
 
     data() {
         return {
