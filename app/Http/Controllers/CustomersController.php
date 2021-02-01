@@ -14,12 +14,21 @@ class CustomersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $customers = Customer::with('city')->get();
+        $search = $request->get('search') ?? null;
+
+        $query = Customer::with('city');
+
+        if ($search != null) {
+           $query =  $query->where('name', 'LIKE', '%'.$search.'%');
+        }
+
+        $customers = $query->paginate(5);
 
         return Inertia::render('Customers/Index', [
             'customers' => $customers,
+            'search' => $search
         ]);
     }
 
