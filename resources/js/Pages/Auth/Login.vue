@@ -1,21 +1,63 @@
 <template>
-    <div class="text-center vsc-initialized">
-        <form class="form-signin" @submit.prevent="submit">
-            <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-            <label for="inputEmail" class="sr-only">Email</label>
-            <input type="email" id="inputEmail" class="form-control" placeholder="Email" v-model="form.email" required="" autofocus="">
-            <label for="inputPassword" class="sr-only">Password</label>
-            <input type="password" id="inputPassword" class="form-control" placeholder="Password" v-model="form.password" required="">
-            <div class="checkbox mb-3">
-                <label>
-                    <input type="checkbox" v-model="form.remember"> Remember me
-                </label>
-            </div>
-            <button class="btn btn-lg btn-primary btn-block" type="submit" :disabled="sending">Login</button>
-            <p class="mt-5 mb-3 text-muted">© 2021-2021</p>
-        </form>
-    </div>
+  <div class="c-app flex-row align-items-center">
+    <CContainer>
+      <CRow class="justify-content-center">
+        <CCol md="8">
+          <CCardGroup>
+            <CCard class="p-4">
+              <CCardBody>
+                <CForm @submit.prevent="submit">
+                  <h1>Login</h1>
+                  <p class="text-muted">Faça login em sua conta</p>
+                  <CInput
+                    placeholder="Username"
+                    autocomplete="username email"
+                    v-model="form.email"
+                  >
+                    <template #prepend-content><CIcon name="cil-user"/></template>
+                  </CInput>
+                  <CInput
+                    placeholder="Password"
+                    type="password"
+                    autocomplete="curent-password"
+                    v-model="form.password"
+                  >
+                    <template #prepend-content><CIcon name="cil-lock-locked"/></template>
+                  </CInput>
+                  <CRow>
+                    <CCol col="6" class="text-left">
+                      <CButton type="submit" color="primary" class="px-4">Login</CButton>
+                    </CCol>
+                    <CCol col="6" class="text-right">
+                      <CButton color="link" class="d-lg-none">Register now!</CButton>
+                    </CCol>
+                  </CRow>
+                </CForm>
+              </CCardBody>
+            </CCard>
+            <CCard
+              color="primary"
+              text-color="white"
+              class="text-center py-5 d-md-down-none"
+              body-wrapper
+            >
+              <CCardBody>
+                <h2>Sign up</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <CButton
+                  color="light"
+                  variant="outline"
+                  size="lg"
+                >
+                  Register Now!
+                </CButton>
+              </CCardBody>
+            </CCard>
+          </CCardGroup>
+        </CCol>
+      </CRow>
+    </CContainer>
+  </div>
 </template>
 
 <script>
@@ -46,16 +88,3 @@ export default {
   },
 }
 </script>
-
-<style>
-    body {
-        padding-top: 100px;
-        padding-bottom: 40px;
-    }
-    .form-signin {
-        width: 100%;
-        max-width: 330px;
-        padding: 15px;
-        margin: 0 auto;
-    }
-</style>
